@@ -2,6 +2,14 @@
 
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import Link from 'next/link';
+
+
+const links = [
+  { label: 'Home', href: '#' },
+  { label: 'About', href: '#' },
+  { label: 'Contact', href: '#' },
+];
 
 export default function Home() {
   function SearchBar({ onSearch }: { onSearch: (term: string) => void }) {
@@ -28,10 +36,18 @@ export default function Home() {
         
         <nav className={`absolute top-16 left-0 w-full bg-white shadow-md p-4 transition-transform duration-300 ease-in-out md:static md:shadow-none md:p-0 md:w-auto ${isOpen ? 'block' : 'hidden'} md:flex`}>
           <ul className='flex flex-col md:flex-row gap-4'> 
-            <li className='flex flex-row gap-1 items-center'><span>Home</span></li>
-            <li className='flex flex-row gap-1 items-center'><span>About</span></li>
-            <li className='flex flex-row gap-1 items-center'><span>Contact</span></li>
-            <li className='flex flex-row gap-1 items-center'><span>Blog</span></li>
+            <li className='flex flex-row gap-1 items-center'>
+              <Link href="/">Home</Link>
+            </li>
+            <li className='flex flex-row gap-1 items-center'>
+              <Link href="/about">About</Link>
+            </li>
+            <li className='flex flex-row gap-1 items-center'>
+              <Link href="/contact">Contact</Link>
+            </li>
+            <li className='flex flex-row gap-1 items-center'>
+              <Link href="/blog">Blog </Link>
+            </li>
           </ul>
         </nav>
         
